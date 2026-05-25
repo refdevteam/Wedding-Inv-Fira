@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: #111111;
+  --foreground: #F5F5F5;
+  --accent-gold: #C99450;
+  --accent-green: #2A362B;
+  --accent-brown: #8D5B36;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Javanese Dark Elegance Theme Setup */
+[data-theme='dark-elegance'] {
+  --background: #111111;
+  --foreground: #F5F5F5;
+}
+
+[data-theme='ethereal-minimalist'] {
+  --background: #FDFDFD;
+  --foreground: #222222;
+}
+
+[data-theme='romantic-botanical'] {
+  --background: #F4F1EA;
+  --foreground: #3A473D;
+}
