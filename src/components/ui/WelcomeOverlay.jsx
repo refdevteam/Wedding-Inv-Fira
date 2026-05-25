@@ -7,6 +7,7 @@ import JanurKuning from "@/components/ui/JanurKuning";
 
 export default function WelcomeOverlay() {
   const [isOpen, setIsOpen] = useState(false);
+  const [guestName, setGuestName] = useState("Tamu Undangan");
   
   const images = [
     "/images/Gemini_Generated_Image_g8mjbtg8mjbtg8mj.png",
@@ -22,6 +23,17 @@ export default function WelcomeOverlay() {
       document.body.style.overflow = 'auto';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const to = params.get("to");
+      if (to) {
+        // Decode URI component and replace hyphens/underscores with spaces if needed, or just use it directly
+        setGuestName(to.replace(/-/g, " "));
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -110,7 +122,7 @@ export default function WelcomeOverlay() {
             
             <p className="text-[var(--foreground)]/90 text-sm mb-12 font-light drop-shadow-md">
               Kepada Yth. Bapak/Ibu/Saudara/i<br/>
-              <strong className="text-[var(--accent-gold)] text-xl block mt-3 font-serif">Tamu Undangan</strong>
+              <strong className="text-[var(--accent-gold)] text-xl md:text-2xl block mt-3 font-serif uppercase tracking-widest">{guestName}</strong>
             </p>
 
             <button
